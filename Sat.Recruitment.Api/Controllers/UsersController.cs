@@ -69,7 +69,6 @@ namespace Sat.Recruitment.Api.Controllers
             }
         }
 
-        //Validate errors
         private string ValidateErrors(string name, string email, string address, string phone)
         {
             if (string.IsNullOrEmpty(name))
@@ -84,7 +83,6 @@ namespace Sat.Recruitment.Api.Controllers
                 return null;
         }
 
-        //Normalize email
         private string NormalizeEmail(string email)
         {
             var aux = email.Split("@");
@@ -140,15 +138,6 @@ namespace Sat.Recruitment.Api.Controllers
                 }
             }
             user.Money += gif;
-        }
-
-        private StreamReader ReadUsersFromFile()
-        {
-            var path = Directory.GetCurrentDirectory() + "/Files/Users.txt";
-            FileStream fileStream = new FileStream(path, FileMode.Open);
-            StreamReader reader = new StreamReader(fileStream);
-
-            return reader;
         }
 
         private void AddUser(User newUser)
